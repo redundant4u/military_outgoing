@@ -8,25 +8,34 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/cal.css">
 	<link rel="stylesheet" type="text/css" href="css/register.css">
-	<script type="text/javascript" src="js/cal.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
-	<script type="text/javascript" src="js/toggle.js"></script>
+	<script type="text/javascript" src="js/calendar.js"></script>
 </head>
 <body onload="makeCal()">
 	<div class="body">
 		<div class="main-padding2">
-			<a href="register.php" target="">등록</a>
 			<div id="toggle">
-				<button class="btn btn-default" onclick="toggleCal()">달력</button>
-				<button class="btn btn-default" onclick="toggleMunguk()">다른</button>
+				<label class="radio-inline">
+					<input type="radio" name="toggle" value="cal" onclick="toggleCal()" checked>달력
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="toggle" value="munguk" onclick="toggleMunguk()">격자
+				</label>
 			</div>
-			<div id="register" class="form-group">
+			<button class="btn btn-default" onclick="openRegister()">등록</button>
+			<div id="register" class="form-group" style="display: none;">
 				<form action="register.php" method="POST">
 					<div class="form-group">
 						<input class="form-control" type="text" id="name" placeholder="이름">
 					</div>
 					<div class="form-group">
 						<input class="form-control" type="text" id="milNum" placeholder="군번 (- 제외)">
+					</div>
+					<div id="command">
+						<label>중대</label>
+						<label class="radio-inline">
+							<input type="radio" name="command" value="headquarter"> 본부중대
+						</label>
 					</div>
 					<div id="rank">
 						<label>계급</label>
@@ -44,7 +53,7 @@
 						</label>
 					</div> <!-- end of rank div -->
 					<div id="outgoingKind" onclick="outgoingKindSelect()">
-						<label>출타</label>
+						<label class="">출타</label>
 						<label class="radio-inline">
 							<input type="radio" name="outgoingKind" value="dayouting"> 평일외출
 						</label>
@@ -65,9 +74,9 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><label onclick="prevCal()"><<</label></td>
-						<td id="yearmonth"></td>
-						<td><label onclick="nextCal()">>></label></td>
+						<td class="grid"><label onclick="prevCal()"><<</label></td>
+						<td id="yearmonth" colspan="5"></td>
+						<td class="grid"><label onclick="nextCal()">>></label></td>
 					</tr>
 				</tbody>
 				<tbody id="calendar">
@@ -81,7 +90,7 @@
 						<td><font color="blue">토</font></td>
 					</tr>
 				</tbody>
-				<tbody id="munguk">
+				<tbody id="munguk" style="display: none">
 				</tbody>
 			</table>
 		</div>
