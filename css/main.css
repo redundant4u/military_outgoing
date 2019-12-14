@@ -1,0 +1,153 @@
+@charset "utf-8";
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-style: normal;
+	font-weight: 400;
+	src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.eot);
+	src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+	url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.woff2) format('woff2'),
+ 	url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.woff) format('woff'),
+	url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.ttf) format('truetype');
+}
+
+@media only screen and (max-width: 600px) {
+	.navbar-nav {
+		margin: 0px -15px;
+	}
+	nav {
+		border-bottom: 0;
+		height: auto;
+	}
+	nav ul {
+		background-color: #222;
+		display: none;
+		height: auto;
+	}
+	nav a {
+		text-align: left;
+		width: 100%;
+		text-indent: 25px;
+	}
+	nav a#pull {
+		display: block;
+		background-color: #222;
+		width: 100%;
+		position: relative;
+	}
+	nav a#pull:after {
+		content: "";
+		width: 30px;
+		display: inline-block;
+		right: 15px;
+		top: 10px;
+	}
+	nav li {
+		display: block;
+		float: none;
+		width: 100%;
+	}
+	nav li a {
+		border-bottom: 1px solid #eee;
+	}
+
+	.baseballboard {
+		padding-right: 0 !important;
+	}
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	background-color: #eee;
+	height: 100%;
+	font-family: 'Nanum Gothic';
+}
+
+hr {
+	border-top: 1px solid lightgray;
+	width: 85%;
+}
+
+div.background {
+	background-color: lightgray;
+	border-radius: 1rem;
+	padding-top: 2rem;
+	padding-bottom: 5rem;
+	margin-top: 3rem;
+}
+
+.footer {
+	margin: 1rem;
+	text-align: center;
+}
+
+.table-responsive {
+	border: none;
+}
+
+.navbar {
+	padding-top: 1rem;
+	height: 7rem;
+}
+
+.center {
+	padding-top: 7px;
+	text-align: center;
+}
+
+.search-margin {
+	margin-bottom: 4rem;
+	font-weight: bold;
+}
+
+.search-padding {
+	padding-top: 11rem;
+	padding-bottom: 11rem;
+}
+
+.main-padding {
+	padding-top: 20rem;
+	padding-bottom: 15rem;
+}
+
+.main-padding2 {
+	padding-top: 10rem;
+	padding-bottom: 10rem;
+}
+
+.form-control {
+	margin-bottom: 2rem;
+	padding: 6px 12px;
+}
+
+.baseball { float: left; padding-bottom: 3rem; }
+
+#ucdc {
+	font-weight: bold;
+	text-align: center;
+}
+
+#login {
+	background: white;
+	padding: 1rem 1rem 1rem 1rem;
+	position: absolute;
+	border: 2px solid black;
+	margin-top: 6.5rem;
+	margin-right: 1rem;
+}
+
+#content {
+	width: 100%;
+	line-height: 30px;
+	overflow-y: hidden;
+	height: 300px;
+}
+
+#baseballInput {
+	width: 20rem;
+	height: 10rem;
+	font-size: 5rem;
+	text-align: center;
+}

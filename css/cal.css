@@ -1,0 +1,19 @@
+table {
+	width: 100%;
+	table-layout: fixed;
+	margin: auto; /* align table center */
+	max-width: 120rem;
+	text-align: center;
+}
+
+td { border: 1px solid; }
+
+tbody > tr:nth-child(1) { border-bottom: 3px solid black; }
+
+#yearmonth { padding: 3rem 3rem 3rem 3rem; font-size: 3rem; }
+
+.day { padding-bottom: 11rem; }
+
+@media only screen and (max-width: 600px) {
+	.day { padding-bottom: 8rem; }
+}
