@@ -23,6 +23,8 @@ let makeYearMonth = function () {
 }
 
 let makeCal = function () {
+	let thisYear = today.getFullYear();
+	let thisMonth = today.getMonth();
 	let firstDay = new Date( today.getFullYear(), today.getMonth(), 1 );
 	let lastDay = new Date( today.getFullYear(), today.getMonth() + 1, 0 );
 
@@ -44,6 +46,7 @@ let makeCal = function () {
 
 	for( let i = 1; i <= lastDay.getDate(); i++ ) {
 		cell = row.insertCell();
+		cell.id = thisYear + "-" + (thisMonth + 1) + "-" + i;
 		cell.className += "day";
 		cell.innerHTML = i;
 		count += 1;
@@ -115,3 +118,5 @@ $(function () {
 	$('#startDate').datepicker();
 	$('#endDate').datepicker();
 });
+
+
