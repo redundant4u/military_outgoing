@@ -8,6 +8,9 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/cal.css">
 	<link rel="stylesheet" type="text/css" href="css/register.css">
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
 </head>
@@ -19,24 +22,24 @@
 					<input type="radio" name="toggle" value="cal" onclick="toggleCal()" checked>달력
 				</label>
 				<label class="radio-inline">
-					<input type="radio" name="toggle" value="munguk" onclick="toggleMunguk()">격자
+					<input type="radio" name="toggle" value="grid" onclick="toggleGrid()">격자
 				</label>
 			</div>
 			<button class="btn btn-default" onclick="openRegister()">등록</button>
-			<div id="register" class="form-group" style="display: none;">
+			<div id="register" style="display: none;">
 				<form action="register.php" method="POST">
 					<div class="form-group">
-						<input class="form-control" type="text" id="name" placeholder="이름">
+						<input class="form-control" type="text" name="name" id="name" placeholder="이름" required>
 					</div>
 					<div class="form-group">
-						<input class="form-control" type="text" id="milNum" placeholder="군번 (- 제외)">
+						<input class="form-control" type="text" name="number" id="number" placeholder="군번 (- 제외)" required>
 					</div>
 					<div id="command">
 						<label>중대</label>
 						<label class="radio-inline">
 							<input type="radio" name="command" value="headquarter"> 본부중대
 						</label>
-					</div>
+					</div> <!-- end of command div -->
 					<div id="rank">
 						<label>계급</label>
 						<label class="radio-inline">
@@ -66,8 +69,15 @@
 						<label class="radio-inline">
 							<input type="radio" name="outgoingKind" value="vacation"> 휴가
 						</label>
-					</div>
+					</div> <!-- end of outgoingkind div -->
 					<div id="outgoingType">
+					</div>
+					<div id="date">
+						<input type="text" name="startDate" id="startDate" class="form-control">
+						<input type="text" name="endDate" id="endDate" class="form-control">
+					</div> <!-- end of date div -->
+					<div id="submit" class="form-group">
+						<input type="submit" value="확인" class="form-control"> <!-- somthing strange -->
 					</div>
 				</form>
 			</div>
@@ -90,7 +100,7 @@
 						<td><font color="blue">토</font></td>
 					</tr>
 				</tbody>
-				<tbody id="munguk" style="display: none">
+				<tbody id="grid" style="display: none">
 				</tbody>
 			</table>
 		</div>
