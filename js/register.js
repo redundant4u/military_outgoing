@@ -1,3 +1,7 @@
+let openRegister = function () {
+	document.getElementById("register").removeAttribute("style");
+}
+
 let outgoingKindSelect = function () {
 	let kind_res = null;
 	let kind = document.getElementsByName('outgoingKind');
