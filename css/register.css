@@ -3,7 +3,7 @@
 	border-radius: 1rem;
 	margin: auto; /* align center */ 
 	max-width: 50rem;
-	padding: 2rem 2rem 12rem 2rem;
+	padding: 2rem 2rem 3rem 2rem;
 	margin-bottom: 2rem;
 	font-size: 1.6rem;
 	text-align: center;
@@ -13,7 +13,9 @@
 #rank { float: left; padding-left: 8rem; }
 #outgoingKind { float: left; padding-left: 8rem; }
 #outgoingType { float: left; padding-left: 8rem; }
-
+#submit {  }
+#date { float: left; padding-left: 6rem; margin-bottom: 3rem; }
+#date > input { width: 45%; display: initial; }
 .form-control {
 	width: 65%;
 	margin: auto;
