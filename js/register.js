@@ -19,14 +19,14 @@ let outgoingTypeWrite = function (kind) {
 
 	if( kind == "vacation" ) {
 		typeID.innerHTML = startWrite +
-			'<label class="radio-inline"><input type="radio" name="outgoingType"> 연가</label>\
-			<label class="radio-inline"><input type="radio" name="outgoingType"> 포상</label>\
-			<label class="radio-inline"><input type="radio" name="outgoingType"> 위로</label>\
-			<label class="radio-inline"><input type="radio" name="outgoingType"> 보상</label>';
+			'<label class="radio-inline"><input type="radio" name="outgoingType" value="help"> 연가</label>\
+			<label class="radio-inline"><input type="radio" name="outgoingType" value="prize"> 포상</label>\
+			<label class="radio-inline"><input type="radio" name="outgoingType" value="encourage"> 위로</label>\
+			<label class="radio-inline"><input type="radio" name="outgoingType" value="reward"> 보상</label>';
 	}
 	else {
 		typeID.innerHTML = startWrite +
-			'<label class="radio-inline"><input type="radio" name="outgoingType"> 정기</label>\
-			<label class="radio-inline"><input type="radio" name="outgoingType"> 포상</label>';
+			'<label class="radio-inline"><input type="radio" name="outgoingType" value="help"> 정기</label>\
+			<label class="radio-inline"><input type="radio" name="outgoingType" value="prize"> 포상</label>';
 	}
 }
