@@ -13,6 +13,7 @@
 	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
+	<script type="text/javascript" src="js/writedata.js"></script>
 </head>
 <body onload="makeCal()">
 	<div class="body">
@@ -103,6 +104,8 @@
 				<tbody id="grid" style="display: none">
 				</tbody>
 			</table>
+			<div id="test">
+			</div>
 		</div>
 	</div>
 	<footer class="footer">
