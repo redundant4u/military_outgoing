@@ -12,8 +12,4 @@ tbody > tr:nth-child(1) { border-bottom: 3px solid black; }
 
 #yearmonth { padding: 3rem 3rem 3rem 3rem; font-size: 3rem; }
 
-.day { padding-bottom: 11rem; }
-
-@media only screen and (max-width: 600px) {
-	.day { padding-bottom: 8rem; }
-}
+.day { padding-bottom: 11rem; text-align: initial; word-break: break-all; }
