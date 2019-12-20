@@ -4,7 +4,6 @@ let date = new Date();
 let prevCal = function () {
 	today = new Date( today.getFullYear(), today.getMonth() - 1, today.getDate() );
 
-	makeYearMonth();
 	makeCal();
 	makeGrid();
 }
@@ -12,7 +11,6 @@ let prevCal = function () {
 let nextCal = function () {
 	today = new Date( today.getFullYear(), today.getMonth() +1, today.getDate() );
 	
-	makeYearMonth();
 	makeCal();
 	makeGrid();
 }
@@ -23,11 +21,11 @@ let makeYearMonth = function () {
 }
 
 let makeCal = function () {
-	let thisYear = today.getFullYear();
-	let thisMonth = today.getMonth();
+	//let thisYear = today.getFullYear();
+	//let thisMonth = today.getMonth();
 	let firstDay = new Date( today.getFullYear(), today.getMonth(), 1 );
 	let lastDay = new Date( today.getFullYear(), today.getMonth() + 1, 0 );
-
+	
 	let calID = document.getElementById("calendar");
 
 	makeYearMonth();
@@ -35,25 +33,45 @@ let makeCal = function () {
 	while( calID.rows.length > 1 ) calID.deleteRow( calID.rows.length - 1 );
 
 	let row = null;
+	let dbComapre = null;
 	let count = 0;
 
 	row = calID.insertRow();
-	
+
 	for( let i = 0; i < firstDay.getDay(); i++) {
-		cell = row.insertCell();
+		row.insertCell();
+		//cell = row.insertCell();
 		count += 1;
 	}
 
-	for( let i = 1; i <= lastDay.getDate(); i++ ) {
+	for( let i = 1; i <= 36; i++ ) {
+		//let compare = thisYear + "-" + (thisMonth + 1) + "-" + i;
+		let dayID = document.getElementById(i);
+
 		cell = row.insertCell();
-		cell.id = thisYear + "-" + (thisMonth + 1) + "-" + i;
-		cell.className += "day";
+		//cell.id = thisYear + "-" + (thisMonth + 1) + "-" + i;
+		//cell.className += "day";
 		cell.innerHTML = i;
 		count += 1;
 
 		if( count % 7 == 1 ) cell.innerHTML = "<font color=red>" + i; // sunday
-		if( count % 7 == 0 ) { cell.innerHTML = "<font color=blue>" + i; row = calendar.insertRow(); }
-		//if( today == new Date('2019-12-13') ) { "<font color=green>" + i };
+		if( count % 7 == 0 ) {
+			cell.innerHTML = "<font color=blue>" + i;
+			// 여기부터 수정 했음
+			row = calID.insertRow();
+			if( i > lastDay.getDate() )
+				cell.innerHTML = "";
+
+			for( let j = 0; j < 7; j++ ) {
+				cell = row.insertCell();
+				cell.className += "day";
+				cell.id += i - (6 - j);
+			}
+			row = calID.insertRow();
+		}
+
+		if( i > lastDay.getDate() )
+			cell.innerHTML = ""; // if i is more than last day, delete text
 	}
 
 	makeGrid(); // first grid initailzation
@@ -102,18 +120,18 @@ let toggleGrid = function () {
 
 $(function () {
 	$.datepicker.setDefaults({
-			dateFormat: 'yy-mm-dd',
-			changeMonth: true,
-			changeYear: true,
-			nextText: '>>',
-			prevText: '<<',
-			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-			dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-			monthNamesMin: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-			minDate: "-1M",
-			maxDate: "+1M",
-		});
+		dateFormat: 'yy-mm-dd',
+		changeMonth: true,
+		changeYear: true,
+		nextText: '>>',
+		prevText: '<<',
+		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+		monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		monthNamesMin: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		minDate: "-1M",
+		maxDate: "+1M",
+	});
 
 	$('#startDate').datepicker();
 	$('#endDate').datepicker();
