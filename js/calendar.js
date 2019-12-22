@@ -21,11 +21,11 @@ let makeYearMonth = function () {
 }
 
 let makeCal = function () {
-	//let thisYear = today.getFullYear();
-	//let thisMonth = today.getMonth();
+	let thisYear = today.getFullYear();
+	let thisMonth = today.getMonth();
 	let firstDay = new Date( today.getFullYear(), today.getMonth(), 1 );
 	let lastDay = new Date( today.getFullYear(), today.getMonth() + 1, 0 );
-	
+
 	let calID = document.getElementById("calendar");
 
 	makeYearMonth();
@@ -57,8 +57,8 @@ let makeCal = function () {
 		if( count % 7 == 1 ) cell.innerHTML = "<font color=red>" + i; // sunday
 		if( count % 7 == 0 ) {
 			cell.innerHTML = "<font color=blue>" + i;
-			// 여기부터 수정 했음
 			row = calID.insertRow();
+
 			if( i > lastDay.getDate() )
 				cell.innerHTML = "";
 
@@ -74,6 +74,7 @@ let makeCal = function () {
 			cell.innerHTML = ""; // if i is more than last day, delete text
 	}
 
+	writeData( lastDay, thisYear, leadingZeros(thisMonth+1, 2) );
 	makeGrid(); // first grid initailzation
 }
 
@@ -137,4 +138,14 @@ $(function () {
 	$('#endDate').datepicker();
 });
 
+let leadingZeros = function(number, digits) {
+	let zero = "";
 
+	number = number.toString();
+
+	if( number.length < digits )
+		for( let i = 0; i < digits - number.length; i++)
+			zero += "0";
+	
+	return zero + number;
+}
