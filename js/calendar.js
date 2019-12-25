@@ -90,6 +90,11 @@ let makeGrid = function () {
 	while( gridID.rows.length > 0 ) gridID.deleteRow( gridID.rows.length - 2 );
 
 	row = gridID.insertRow();
+	cell = row.insertCell();
+	cell.colSpan = "2";
+	cell.innerHTML = "이름";
+
+
 	for( let i = 1; i <= lastDay.getDate(); i++) {
 		let weekend = new Date( today.getFullYear(), today.getMonth(), i )
 
@@ -112,7 +117,7 @@ let toggleCal = function () {
 let toggleGrid = function () {
 	//let lastDay = new Date( today.getFullYear(), today.getMonth() + 1, 0);
 
-	document.getElementById("yearmonth").setAttribute("colspan", "23");
+	document.getElementById("yearmonth").setAttribute("colspan", "25");
 	document.getElementsByClassName("grid")[0].setAttribute("colspan", "4");
 	document.getElementsByClassName("grid")[1].setAttribute("colspan", "4");
 	document.getElementById("calendar").setAttribute("style", "display: none");
