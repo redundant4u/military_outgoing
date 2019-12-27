@@ -13,7 +13,8 @@
 	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
-	<script type="text/javascript" src="js/write.js"></script>
+	<script type="text/javascript" src="js/data.js"></script>
+	<script type="text/javascript" src="js/exceldownload.js"></script>
 </head>
 <body onload="makeCal()">
 	<div class="body">
@@ -39,6 +40,15 @@
 						<label>중대</label>
 						<label class="radio-inline">
 							<input type="radio" name="command" value="headquarter"> 본부중대
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="command" value="firstsupport"> 지원1중대
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="command" value="secondsupport"> 지원2중대
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="command" value="employment"> 운용중대
 						</label>
 					</div> <!-- end of command div -->
 					<div id="rank">
@@ -82,6 +92,20 @@
 					</div>
 				</form>
 			</div>
+			<div id="commandSelect">
+				<label class="radio-inline">
+					<input type="radio" name="commandSelect" value="headquarter" onclick="commandSelect()" checked> 본부중대
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="commandSelect" value="firstsupport" onclick="commandSelect()"> 지원1중대
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="commandSelect" value="secondsupport" onclick="commandSelect()"> 지원2중대
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="commandSelect" value="employment" onclick="commandSelect()"> 운용중대
+				</label>
+			</div> <!-- end of command div -->
 			<table>
 				<tbody>
 					<tr>
@@ -104,7 +128,8 @@
 				<tbody id="grid" style="display: none">
 				</tbody>
 			</table>
-			<div id="test">
+			<div>
+				<button id="test" type="button">다운로드</button>
 			</div>
 		</div>
 	</div>
