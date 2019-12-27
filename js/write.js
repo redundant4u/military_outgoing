@@ -94,6 +94,13 @@ let writeData = function (lastDay, thisYear, thisMonth) {
 						for( let j = 1; j < lastDay.getDate(); j++ ) {
 							if( j == startDay ) {
 
+								if( thisYearMonth != startYearMonth  ) // prevent two consecutive months from being unshown
+									startDay = 1;
+								if( thisYearMonth != endYearMonth ) {
+									printEndday = endDay;
+									endDay = lastDay.getDate();
+								}
+
 								switch(outgoingKind) {
 									case "dayouting":
 										for( let k = 0; k < nameArray.length; k++ )
