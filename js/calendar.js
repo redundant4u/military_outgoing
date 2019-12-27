@@ -15,12 +15,24 @@ let nextCal = function () {
 	makeGrid();
 }
 
+let commandSelect = function () {
+	let command_res = null;
+	let command = document.getElementsByName("commandSelect");
+
+	for( let i = 0; i < command.length; i++ )
+		if( command[i].checked )
+			command_res = command[i].value;
+
+	makeCal(command_res);
+}
+
+
 let makeYearMonth = function () {
 	let yearmonthID = document.getElementById("yearmonth");
 	yearmonthID.innerHTML = today.getFullYear() + "년 " + ( today.getMonth() + 1 ) + "월 ";
 }
 
-let makeCal = function () {
+let makeCal = function ( command = 'headquarter' ) {
 	let thisYear = today.getFullYear();
 	let thisMonth = today.getMonth();
 	let firstDay = new Date( today.getFullYear(), today.getMonth(), 1 );
@@ -74,7 +86,7 @@ let makeCal = function () {
 			cell.innerHTML = ""; // if i is more than last day, delete text
 	}
 
-	writeData( lastDay, thisYear, leadingZeros(thisMonth+1, 2) );
+	writeData( lastDay, thisYear, leadingZeros(thisMonth+1, 2), command );
 	makeGrid(); // first grid initailzation
 }
 
