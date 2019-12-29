@@ -7,14 +7,12 @@ let prevCal = function () {
 	today = new Date( today.getFullYear(), today.getMonth() - 1, today.getDate() );
 
 	makeCal(command_res);
-	makeGrid();
 }
 
 let nextCal = function () {
 	today = new Date( today.getFullYear(), today.getMonth() +1, today.getDate() );
 	
 	makeCal(command_res);
-	makeGrid();
 }
 
 let commandSelect = function () {
@@ -79,6 +77,7 @@ let makeCal = function ( command = 'headquarter' ) {
 				cell = row.insertCell();
 				cell.className += "day";
 				cell.id += i - (6 - j);
+				cell.onclick = "test()";
 			}
 			row = calID.insertRow();
 		}
