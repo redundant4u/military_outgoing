@@ -1,22 +1,23 @@
 let today = new Date();
 let date = new Date();
 
+let command_res = null;
+
 let prevCal = function () {
 	today = new Date( today.getFullYear(), today.getMonth() - 1, today.getDate() );
 
-	makeCal();
+	makeCal(command_res);
 	makeGrid();
 }
 
 let nextCal = function () {
 	today = new Date( today.getFullYear(), today.getMonth() +1, today.getDate() );
 	
-	makeCal();
+	makeCal(command_res);
 	makeGrid();
 }
 
 let commandSelect = function () {
-	let command_res = null;
 	let command = document.getElementsByName("commandSelect");
 
 	for( let i = 0; i < command.length; i++ )
@@ -86,7 +87,7 @@ let makeCal = function ( command = 'headquarter' ) {
 			cell.innerHTML = ""; // if i is more than last day, delete text
 	}
 
-	writeData( lastDay, thisYear, leadingZeros(thisMonth+1, 2), command );
+	showData( lastDay, thisYear, leadingZeros(thisMonth+1, 2), command );
 	makeGrid(); // first grid initailzation
 }
 
