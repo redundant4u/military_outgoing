@@ -1,7 +1,7 @@
 let today = new Date();
 let date = new Date();
 
-let command_res = null;
+let command_res = "headquarter";
 
 let prevCal = function () {
 	today = new Date( today.getFullYear(), today.getMonth() - 1, today.getDate() );
@@ -56,38 +56,35 @@ let makeCal = function ( command = 'headquarter' ) {
 	}
 
 	for( let i = 1; i <= 36; i++ ) {
-		//let compare = thisYear + "-" + (thisMonth + 1) + "-" + i;
 		let dayID = document.getElementById(i);
 
 		cell = row.insertCell();
-		//cell.id = thisYear + "-" + (thisMonth + 1) + "-" + i;
-		//cell.className += "day";
-		cell.innerHTML = i;
+		cell.innerHTML = i; // day print
 		count += 1;
 
 		if( count % 7 == 1 ) cell.innerHTML = "<font color=red>" + i; // sunday
-		if( count % 7 == 0 ) {
+		if( count % 7 == 0 ) { // saturday
 			cell.innerHTML = "<font color=blue>" + i;
 			row = calID.insertRow();
 
 			if( i > lastDay.getDate() )
-				cell.innerHTML = "";
+				cell.innerHTML = ""; // if i is more than last day, delete text(saturday)
 
 			for( let j = 0; j < 7; j++ ) {
 				cell = row.insertCell();
 				cell.className += "day";
 				cell.id += i - (6 - j);
-				cell.onclick = "test()";
+				//cell.setAttribute( "onclick", "showMore(" + ( i - (6 - j) ) + ")" );
 			}
 			row = calID.insertRow();
 		}
 
 		if( i > lastDay.getDate() )
-			cell.innerHTML = ""; // if i is more than last day, delete text
+			cell.innerHTML = ""; // if i is more than last day, delete text(except saturday)
 	}
 
 	showData( lastDay, thisYear, leadingZeros(thisMonth+1, 2), command );
-	makeGrid(); // first grid initailzation
+	makeGrid(); // need first grid initailzation
 }
 
 let makeGrid = function () {
