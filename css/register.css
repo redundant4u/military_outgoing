@@ -9,10 +9,10 @@
 	text-align: center;
 }
 
-#command { float: left; padding-left: 8rem; }
-#rank { float: left; padding-left: 8rem; }
-#outgoingKind { float: left; padding-left: 8rem; }
-#outgoingType { float: left; padding-left: 8rem; }
+#command { float: left; padding-left: 2rem; }
+#rank { float: left; padding-left: 2rem; }
+#outgoingKind { float: left; padding-left: 2rem; }
+#outgoingType { float: left; padding-left: 2rem; }
 #submit {  }
 #date { float: left; padding-left: 6rem; margin-bottom: 3rem; }
 #date > input { width: 45%; display: initial; }
