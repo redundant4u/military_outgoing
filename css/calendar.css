@@ -1,0 +1,15 @@
+table {
+	width: 100%;
+	table-layout: fixed;
+	/* margin: auto; align table center */
+	max-width: 120rem;
+	text-align: center;
+}
+
+td { border: 1px solid; font-size: 1.7rem; }
+
+tbody > tr:nth-child(1) { border-bottom: 3px solid black; }
+
+#yearmonth { padding: 3rem 3rem 3rem 3rem; font-size: 3rem; }
+
+.day { padding-bottom: 11rem; text-align: initial; word-break: break-all; }
