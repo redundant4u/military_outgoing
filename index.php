@@ -6,28 +6,21 @@
 	<title>Mil Outgoing System</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/cal.css">
+	<link rel="stylesheet" type="text/css" href="css/calendar.css">
 	<link rel="stylesheet" type="text/css" href="css/register.css">
+	<link rel="stylesheet" type="text/css" href="css/more.css">
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
-	<script type="text/javascript" src="js/data.js"></script>
-	<script type="text/javascript" src="js/exceldownload.js"></script>
+	<script type="text/javascript" src="js/showdata.js"></script>
+	<script type="text/javascript" src="js/showmore.js"></script>
 </head>
 <body onload="makeCal()">
 	<div class="body">
 		<div class="main-padding2">
-			<div id="toggle">
-				<label class="radio-inline">
-					<input type="radio" name="toggle" value="cal" onclick="toggleCal()" checked>달력
-				</label>
-				<label class="radio-inline">
-					<input type="radio" name="toggle" value="grid" onclick="toggleGrid()">격자
-				</label>
-			</div>
-			<button class="btn btn-default" onclick="openRegister()">등록</button>
+			<button class="btn btn-default" onclick="openRegister()">출타등록</button>
 			<div id="register" style="display: none;">
 				<form action="register.php" method="POST">
 					<div class="form-group">
@@ -92,7 +85,17 @@
 					</div>
 				</form>
 			</div>
+			<div id="toggle">
+				<label>스타일 </label>
+				<label class="radio-inline">
+					<input type="radio" name="toggle" value="cal" onclick="toggleCal()" checked>달력
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="toggle" value="grid" onclick="toggleGrid()">격자
+				</label>
+			</div>
 			<div id="commandSelect">
+				<label>중대 선택  </label>
 				<label class="radio-inline">
 					<input type="radio" name="commandSelect" value="headquarter" onclick="commandSelect()" checked> 본부중대
 				</label>
@@ -105,7 +108,10 @@
 				<label class="radio-inline">
 					<input type="radio" name="commandSelect" value="employment" onclick="commandSelect()"> 운용중대
 				</label>
-			</div> <!-- end of command div -->
+			</div><br> <!-- end of command div -->
+			<div>
+				<label>* 빨간색: 휴가 / 파란색: 외박 / 초록색: 외출 / 검은색: 평일외출</label>
+			</div>
 			<table>
 				<tbody>
 					<tr>
@@ -128,8 +134,7 @@
 				<tbody id="grid" style="display: none">
 				</tbody>
 			</table>
-			<div>
-				<button id="test" type="button">다운로드</button>
+			<div id="more" style="display: none;">
 			</div>
 		</div>
 	</div>
