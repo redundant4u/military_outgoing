@@ -10,7 +10,22 @@ let showData = function ( lastDay, thisYear, thisMonth, command ) {
 	xhr.onreadystatechange = function () {
 		if( xhr.readyState == 4 && xhr.status == 200 ) {
 			let obj = JSON.parse(xhr.responseText);
-			
+
+			showMore( obj, thisMonth, lastDay );
+
+	/*		let showMore = function () {
+				const outgoingData = obj.outgoing;
+				let moreID = document.getElementById("more");
+
+				for( let day = 1; day <= lastDay.getDate(); day++ ) {
+					let dayID = document.getElementById(day);
+
+					dayID.onclick = function () {
+						moreID.innerHTML += "<p>" + e
+					}
+				}
+			}*/
+
 			let process = function () {
 				const outgoingData = obj.outgoing;
 
@@ -47,11 +62,12 @@ let showData = function ( lastDay, thisYear, thisMonth, command ) {
 					let startYearMonth = outgoingData[i].startdate.substr(0, 7);
 					let endYearMonth = outgoingData[i].enddate.substr(0, 7);
 					let printEndday;
-	
+
 					for( let j = 1; j <= lastDay.getDate(); j++ ) {
 
 						if( j == startDay ) {
 							dayID = document.getElementById(j);
+
 
 							if( thisYearMonth != startYearMonth  ) // prevent two consecutive months from being unshown
 								startDay = 1;
